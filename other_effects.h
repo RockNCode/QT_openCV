@@ -1,0 +1,4 @@
+#ifndef OTHER_EFFECTS_H
+#define OTHER_EFFECTS_H
+
+#endif // OTHER_EFFECTS_H
