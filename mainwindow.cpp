@@ -28,8 +28,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
 void MainWindow::on_pushButton_clicked()
 {
     VideoCapture captRefrnc(sourceReference.toStdString());
@@ -63,7 +61,7 @@ void MainWindow::on_pushButton_clicked()
     namedWindow(WIN_RF, CV_WINDOW_AUTOSIZE);
 
     Mat frameReference;
-    Mat gray_image;
+    Mat dst_image;
 
     for(;;) //Show the image captured in the window and repeat
     {
@@ -86,18 +84,22 @@ void MainWindow::on_pushButton_clicked()
                 imshow(WIN_RF, frameReference);
             break;
             case 1:                
-                convert_to_grayscale(frameReference,gray_image,&delay);
-                imshow(WIN_RF, gray_image);
+                convert_to_grayscale(frameReference,dst_image,&delay);
+                imshow(WIN_RF, dst_image);
             break;
             case 2:
                 convert_to_bw(frameReference,&delay);
                 imshow(WIN_RF, frameReference);
             break;
+            case 3:
+                homogeneous_blur(frameReference,dst_image);
+                delay = 35;
+                imshow(WIN_RF, dst_image);
+            break;
         default:
 
             break;
         }
-
 
         c = (char)cvWaitKey(delay);
         if (c == 27 || play_status == false) break;
@@ -108,6 +110,7 @@ void MainWindow::on_rb_normal_toggled(bool checked)
 {
     ui->radioButton->setChecked(false);
     ui->radioButton_2->setChecked(false);
+    ui->radioButton_3->setChecked(false);
     if (checked == true)
         img_status = 0;
 
@@ -117,6 +120,7 @@ void MainWindow::on_radioButton_toggled(bool checked)
 {
     ui->radioButton_2->setChecked(false);
     ui->rb_normal->setChecked(false);
+    ui->radioButton_3->setChecked(false);
     if (checked == true){
         img_status = 1;
     }
@@ -126,6 +130,7 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
 {
     ui->radioButton->setChecked(false);
     ui->rb_normal->setChecked(false);
+    ui->radioButton_3->setChecked(false);
     if (checked == true){
         img_status = 2;
         ui->slider_bw->setEnabled(true);
@@ -133,6 +138,15 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
     }else{
         ui->slider_bw->setDisabled(true);
     }
+}
+
+void MainWindow::on_radioButton_3_toggled(bool checked)
+{
+    ui->radioButton->setChecked(false);
+    ui->radioButton_2->setChecked(false);
+    ui->rb_normal->setChecked(false);
+    if (checked == true)
+        img_status = 3;
 }
 
 void MainWindow::on_slider_bw_sliderMoved(int position)
@@ -145,3 +159,4 @@ void MainWindow::on_actionTest_triggered()
     sourceReference = QFileDialog::getOpenFileName(this, tr("Open Video"), "/home/mgarcia/Videos", tr("Video Files (*.mp4 *.avi)"));
     ui->filename->setText(sourceReference);
 }
+

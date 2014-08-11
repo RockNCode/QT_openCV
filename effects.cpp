@@ -7,6 +7,10 @@ effects::effects(QWidget *parent) :
 using namespace cv;
 extern int bw_threshold;
 
+int DELAY_CAPTION = 1500;
+int DELAY_BLUR = 100;
+int MAX_KERNEL_LENGTH = 31;
+
 void convert_to_grayscale(Mat frameReference, Mat& gray_image, int *delay){
     *delay = 35;
     cvtColor( frameReference, gray_image, CV_BGR2GRAY,0 );
@@ -36,5 +40,11 @@ void convert_to_bw(Mat &frameReference, int *delay){
             // set pixel
             frameReference.at<Vec3b>(Point(x,y)) = color;
         }
+    }
+}
+
+void homogeneous_blur(Mat src, Mat &dst){
+    for ( int i = 1; i < MAX_KERNEL_LENGTH; i = i + 2 ){
+        blur( src, dst, Size( i, i ), Point(-1,-1) );
     }
 }

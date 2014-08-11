@@ -28,6 +28,8 @@ private slots:
 
     void on_actionTest_triggered();
 
+    void on_radioButton_3_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
 };

@@ -21,6 +21,6 @@ public slots:
 using namespace cv;
 void convert_to_grayscale(Mat frameReference, Mat& gray_image, int *delay);
 void convert_to_bw(Mat &frameReference, int *delay);
-
+void homogeneous_blur(Mat src, Mat &dst);
 
 #endif // EFFECTS_H
