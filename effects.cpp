@@ -13,7 +13,7 @@ void convert_to_grayscale(Mat frameReference, Mat& gray_image, int *delay){
 }
 
 void convert_to_bw(Mat &frameReference, int *delay){
-    *delay = 15;
+    *delay = 35;
     for( int y = 0; y < frameReference.rows; y++ )
     {
         for( int x = 0; x < frameReference.cols; x++ )

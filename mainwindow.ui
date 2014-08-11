@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>803</width>
+    <height>307</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>670</x>
       <y>10</y>
       <width>87</width>
       <height>27</height>
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
+      <y>60</y>
       <width>201</width>
       <height>111</height>
      </rect>
@@ -83,8 +83,8 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
-      <width>301</width>
+      <y>180</y>
+      <width>411</width>
       <height>19</height>
      </rect>
     </property>
@@ -95,13 +95,26 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
+   <widget class="QTextEdit" name="filename">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>641</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>803</width>
      <height>23</height>
     </rect>
    </property>
@@ -124,7 +137,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionTest">
    <property name="text">
-    <string>Test</string>
+    <string>Open Video</string>
    </property>
   </action>
  </widget>

@@ -26,6 +26,8 @@ private slots:
 
     void on_slider_bw_sliderMoved(int position);
 
+    void on_actionTest_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

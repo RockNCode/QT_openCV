@@ -4,12 +4,14 @@
 #include <stdio.h>
 #include <iostream>
 #include <QMessageBox>
+#include <QFileDialog>
 
 using namespace cv;
 
 int img_status=0;
 int bw_threshold =120;
 bool play_status = false;
+QString sourceReference = "/home/mgarcia/Videos/bigBuckBunnyFullHD_NoAudio.mp4";
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->slider_bw->setDisabled(true);
+    ui->filename->setText(sourceReference);
 }
 
 
@@ -29,8 +32,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    const string sourceReference = "/home/mgarcia/Downloads/LadyAntebellum.mp4";
-    VideoCapture captRefrnc(sourceReference);
+    VideoCapture captRefrnc(sourceReference.toStdString());
     char c;
     int delay = 35;
     int frameNum = -1;          // Frame counter
@@ -136,4 +138,10 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
 void MainWindow::on_slider_bw_sliderMoved(int position)
 {
     bw_threshold = position;
+}
+
+void MainWindow::on_actionTest_triggered()
+{
+    sourceReference = QFileDialog::getOpenFileName(this, tr("Open Video"), "/home/mgarcia/Videos", tr("Video Files (*.mp4 *.avi)"));
+    ui->filename->setText(sourceReference);
 }
