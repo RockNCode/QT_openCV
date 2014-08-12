@@ -1,0 +1,28 @@
+#-------------------------------------------------
+#
+# Project created by QtCreator 2014-08-10T00:20:34
+#
+#-------------------------------------------------
+INCLUDEPATH += D:/opencv/opencv/build/include
+
+QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+TARGET = QtSample
+TEMPLATE = app
+
+
+SOURCES += main.cpp\
+        mainwindow.cpp \
+    effects.cpp
+
+HEADERS  += mainwindow.h \
+    other_effects.h \
+    effects.h
+
+FORMS    += mainwindow.ui
+
+#LIBS += -LD:/opencv/opencv/build/x86/vc11/bin -lopencv_core249 -lopencv_highgui249 -lopencv_imgproc249
+LIBS += -LD:/opencv/opencv/build/x64/vc11/lib -lopencv_core249d -lopencv_highgui249d -lopencv_imgproc249d
+
