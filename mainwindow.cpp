@@ -118,7 +118,10 @@ void MainWindow::on_pushButton_clicked()
         }
 
         c = (char)cvWaitKey(delay);
-        if (c == 27 || play_status == false) break;
+        if (c == 27 || play_status == false) {
+            ui->pushButton->setText("Play");
+            break;
+        }
     }
 }
 
