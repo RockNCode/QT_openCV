@@ -25,9 +25,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //Create a group for exclusive behavior on radios
     QVBoxLayout *vbox = new QVBoxLayout;
     vbox->addWidget(ui->rb_normal);
-    vbox->addWidget(ui->radioButton);
-    vbox->addWidget(ui->radioButton_2);
-    vbox->addWidget(ui->radioButton_3);
+    vbox->addWidget(ui->rb_grayscale);
+    vbox->addWidget(ui->rb_bw);
+    vbox->addWidget(ui->rb_hblur);
     vbox->addStretch(1);
     ui->groupBox->setLayout(vbox);
     setLayout(vbox);
@@ -124,14 +124,14 @@ void MainWindow::on_rb_normal_toggled(bool checked)
 
 }
 
-void MainWindow::on_radioButton_toggled(bool checked)
+void MainWindow::on_rb_grayscale_toggled(bool checked)
 {
     if (checked == true){
         img_status = 1;
     }
 }
 
-void MainWindow::on_radioButton_2_toggled(bool checked)
+void MainWindow::on_rb_bw_toggled(bool checked)
 {
     if (checked == true){
         img_status = 2;
@@ -141,7 +141,7 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
     }
 }
 
-void MainWindow::on_radioButton_3_toggled(bool checked)
+void MainWindow::on_rb_hblur_toggled(bool checked)
 {
     if (checked == true)
         img_status = 3;

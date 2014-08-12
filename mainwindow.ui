@@ -39,7 +39,7 @@
     <property name="title">
      <string>GroupBox</string>
     </property>
-    <widget class="QRadioButton" name="radioButton">
+    <widget class="QRadioButton" name="rb_grayscale">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -52,7 +52,7 @@
       <string>Grayscale</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_2">
+    <widget class="QRadioButton" name="rb_bw">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -78,7 +78,7 @@
       <string>Normal</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_3">
+    <widget class="QRadioButton" name="rb_hblur">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -121,14 +121,6 @@
      </rect>
     </property>
    </widget>
-   <zorder>pushButton</zorder>
-   <zorder>groupBox</zorder>
-   <zorder>slider_bw</zorder>
-   <zorder>filename</zorder>
-   <zorder>radioButton_3</zorder>
-   <zorder>radioButton_2</zorder>
-   <zorder>radioButton</zorder>
-   <zorder>rb_normal</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
