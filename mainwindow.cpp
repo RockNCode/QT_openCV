@@ -64,10 +64,7 @@ void MainWindow::on_pushButton_clicked()
         //return -1;
     }
 
-    Size refS = Size((int) captRefrnc.get(CV_CAP_PROP_FRAME_WIDTH),
-                     (int) captRefrnc.get(CV_CAP_PROP_FRAME_HEIGHT));
-
-    const char* WIN_RF = "Controls";
+    const char* WIN_RF = "Video";
 
     // Windows
     namedWindow(WIN_RF, CV_WINDOW_AUTOSIZE);
