@@ -121,6 +121,14 @@
      </rect>
     </property>
    </widget>
+   <zorder>pushButton</zorder>
+   <zorder>groupBox</zorder>
+   <zorder>slider_bw</zorder>
+   <zorder>filename</zorder>
+   <zorder>radioButton_3</zorder>
+   <zorder>radioButton_2</zorder>
+   <zorder>radioButton</zorder>
+   <zorder>rb_normal</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -133,7 +141,7 @@
    </property>
    <widget class="QMenu" name="menuControls">
     <property name="title">
-     <string>Controls</string>
+     <string>File</string>
     </property>
     <addaction name="actionTest"/>
    </widget>

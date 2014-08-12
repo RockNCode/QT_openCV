@@ -5,6 +5,7 @@
 #include <iostream>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QVBoxLayout>
 
 using namespace cv;
 
@@ -20,6 +21,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->slider_bw->setDisabled(true);
     ui->filename->setText(sourceReference);
+
+    //Create a group for exclusive behavior on radios
+    QVBoxLayout *vbox = new QVBoxLayout;
+    vbox->addWidget(ui->rb_normal);
+    vbox->addWidget(ui->radioButton);
+    vbox->addWidget(ui->radioButton_2);
+    vbox->addWidget(ui->radioButton_3);
+    vbox->addStretch(1);
+    ui->groupBox->setLayout(vbox);
+    setLayout(vbox);
 }
 
 
@@ -108,9 +119,6 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_rb_normal_toggled(bool checked)
 {
-    ui->radioButton->setChecked(false);
-    ui->radioButton_2->setChecked(false);
-    ui->radioButton_3->setChecked(false);
     if (checked == true)
         img_status = 0;
 
@@ -118,9 +126,6 @@ void MainWindow::on_rb_normal_toggled(bool checked)
 
 void MainWindow::on_radioButton_toggled(bool checked)
 {
-    ui->radioButton_2->setChecked(false);
-    ui->rb_normal->setChecked(false);
-    ui->radioButton_3->setChecked(false);
     if (checked == true){
         img_status = 1;
     }
@@ -128,13 +133,9 @@ void MainWindow::on_radioButton_toggled(bool checked)
 
 void MainWindow::on_radioButton_2_toggled(bool checked)
 {
-    ui->radioButton->setChecked(false);
-    ui->rb_normal->setChecked(false);
-    ui->radioButton_3->setChecked(false);
     if (checked == true){
         img_status = 2;
         ui->slider_bw->setEnabled(true);
-
     }else{
         ui->slider_bw->setDisabled(true);
     }
@@ -142,9 +143,6 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
 
 void MainWindow::on_radioButton_3_toggled(bool checked)
 {
-    ui->radioButton->setChecked(false);
-    ui->radioButton_2->setChecked(false);
-    ui->rb_normal->setChecked(false);
     if (checked == true)
         img_status = 3;
 }
