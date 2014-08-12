@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>GroupBox</string>
+     <string>Effects</string>
     </property>
     <widget class="QRadioButton" name="rb_grayscale">
      <property name="geometry">
@@ -77,6 +77,9 @@
      <property name="text">
       <string>Normal</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QRadioButton" name="rb_hblur">
      <property name="geometry">
@@ -91,12 +94,25 @@
       <string>Homogeneous Blur</string>
      </property>
     </widget>
+    <widget class="QRadioButton" name="rb_gblur">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>20</y>
+       <width>131</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Gaussian Blur</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QSlider" name="slider_bw">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>180</y>
+      <y>210</y>
       <width>411</width>
       <height>19</height>
      </rect>

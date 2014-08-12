@@ -31,6 +31,8 @@ private slots:
     void on_actionTest_triggered();
 
 
+    void on_rb_gblur_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
 };

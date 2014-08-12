@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     vbox->addWidget(ui->rb_grayscale);
     vbox->addWidget(ui->rb_bw);
     vbox->addWidget(ui->rb_hblur);
+    vbox->addWidget(ui->rb_gblur);
     vbox->addStretch(1);
     ui->groupBox->setLayout(vbox);
     setLayout(vbox);
@@ -106,6 +107,10 @@ void MainWindow::on_pushButton_clicked()
                 homogeneous_blur(frameReference,dst_image);
                 delay = 35;
                 imshow(WIN_RF, dst_image);
+            case 4:
+                gaussian_blur(frameReference,dst_image);
+                delay = 35;
+                imshow(WIN_RF, dst_image);
             break;
         default:
 
@@ -158,3 +163,9 @@ void MainWindow::on_actionTest_triggered()
     ui->filename->setText(sourceReference);
 }
 
+
+void MainWindow::on_rb_gblur_toggled(bool checked)
+{
+    if (checked == true)
+        img_status = 4;
+}

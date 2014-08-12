@@ -9,7 +9,7 @@ extern int bw_threshold;
 
 int DELAY_CAPTION = 1500;
 int DELAY_BLUR = 100;
-int MAX_KERNEL_LENGTH = 31;
+int MAX_KERNEL_LENGTH = 15;
 
 void convert_to_grayscale(Mat frameReference, Mat& gray_image, int *delay){
     *delay = 35;
@@ -46,5 +46,12 @@ void convert_to_bw(Mat &frameReference, int *delay){
 void homogeneous_blur(Mat src, Mat &dst){
     for ( int i = 1; i < MAX_KERNEL_LENGTH; i = i + 2 ){
         blur( src, dst, Size( i, i ), Point(-1,-1) );
+    }
+}
+
+void gaussian_blur(Mat src, Mat &dst){
+    for ( int i = 1; i < MAX_KERNEL_LENGTH; i = i + 2 )
+    {
+        GaussianBlur( src, dst, Size( i, i ), 0, 0 );
     }
 }
