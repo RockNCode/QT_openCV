@@ -79,7 +79,7 @@ void MainWindow::on_pushButton_clicked()
 
         if (frameReference.empty() )
         {
-            //cout << " < < <  Game over!  > > > ";
+            ui->pushButton->setText("Play");
             QMessageBox messageBox;
             messageBox.critical(0,"Error","video is over!");
             messageBox.setFixedSize(500,200);
@@ -115,10 +115,8 @@ void MainWindow::on_pushButton_clicked()
         }
 
         c = (char)cvWaitKey(delay);
-        if (c == 27 || play_status == false) {
-            ui->pushButton->setText("Play");
+        if (c == 27 || play_status == false)
             break;
-        }
     }
 }
 
