@@ -26,5 +26,9 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 unix: LIBS += -L$$MYLINUXOPENCVPATH/lib/ -lopencv_core -lopencv_highgui -lopencv_imgproc
-win32:LIBS += -L$$MYWINOPENCVPATH/build/x64/vc12/lib -lopencv_core249d -lopencv_highgui249d -lopencv_imgproc249d
+
+win32:CONFIG(release, debug|release): LIBS += -L$$MYWINOPENCVPATH/build/x64/vc12/lib -lopencv_core249 -lopencv_highgui249 -lopencv_imgproc249
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$MYWINOPENCVPATH/build/x64/vc12/lib -lopencv_core249d -lopencv_highgui249d -lopencv_imgproc249d
+
 win32:INCLUDEPATH += $$MYWINOPENCVPATH/build/include
+
