@@ -4,6 +4,9 @@
 #
 #-------------------------------------------------
 
+MYWINOPENCVPATH = C:/Users/manuel.gar/workspace/opencv
+MYLINUXOPENCVPATH = /home/mgarcia/workspace/opencv-2.4.9
+
 QT       += core gui widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -21,5 +24,7 @@ HEADERS  += mainwindow.h \
     effects.h
 
 FORMS    += mainwindow.ui
-LIBS += -L/home/mgarcia/workspace/opencv-2.4.9/bin/
-LIBS += -L/home/mgarcia/workspace/opencv-2.4.9/lib/ -lopencv_core -lopencv_highgui -lopencv_imgproc
+
+unix: LIBS += -L$$MYLINUXOPENCVPATH/lib/ -lopencv_core -lopencv_highgui -lopencv_imgproc
+win32:LIBS += -L$$MYWINOPENCVPATH/build/x64/vc12/lib -lopencv_core249 -lopencv_highgui249 -lopencv_imgproc249
+win32:INCLUDEPATH += $$MYWINOPENCVPATH/build/include
